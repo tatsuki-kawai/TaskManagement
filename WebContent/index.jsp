@@ -14,7 +14,7 @@
                         <h1>たすマネへようこそ！</h1>
                         <p>たすマネでは目標の設定や管理を行うことができます。</p>
                     </div>
-                    <div id="title">
+                    <div class="title">
                         <img src="image/title.png">
                     </div>
                     <form id="form" action="/TaskManagement/Login" method="post">

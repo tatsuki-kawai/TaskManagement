@@ -1,17 +1,14 @@
 @charset "utf-8";
 
 
-
 #Login {
     margin: 0;
     padding: 0;
-    background-color: rgba(215,196,187);
+    background-color: rgba(252,250,242);
 }
 
-
-.content {
-    width: 960px;
-    height: 700px;
+#Login #wrap {
+    width: 1024px;
     margin: 0 auto;
 }
 
@@ -20,8 +17,9 @@
     color: #949494;
 }
 
-#title {
+#Login .title {
     margin-top: 20px;
+    padding-left: 20px;
     float: left;
 }
 
@@ -42,7 +40,7 @@
 }
 
 #inputDate h1  {
-    text-align: center; 
+    text-align: center;
     margin-bottom: 50px;
 }
 
@@ -64,8 +62,66 @@
     background-color: #ffffff;
 }
 
+#Main {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+.menubar {
+    width:200px;
+    height: 100%;
+    float: left;
+    background-color: #cccccc;
+}
 
 
 
+#Main .menu {
+    width: 180px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.menu img {
+    width: 70px;
+    height: 50px;
+    float: left;
+}
+
+.menu a {
+    font-size: 20px;
+    font-family: "Meiryo";
+    color: #757474;
+    text-decoration: none;
+    display: block;
+    margin-top: 20px;
+    padding-top: 15px;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#Main .main-content h1 {
+    color: #757474;
+    text-align: center;
+}
+
+#Main .title img {
+    width: 200px;
+    height: 200px;
+    margin-top: -40px;
+}
+
+#Main #wrap {
+    height: 100%;
+}
 
 
