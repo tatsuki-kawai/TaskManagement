@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+
+
+#Login {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(215,196,187);
+}
+
+
+.content {
+    width: 960px;
+    height: 700px;
+    margin: 0 auto;
+}
+
+#Login .introduction {
+    text-align: center;
+    color: #949494;
+}
+
+#title {
+    margin-top: 20px;
+    float: left;
+}
+
+#form {
+    width: 480px;
+    height: 400px;
+    float: right;
+    border: 1px solid #cccccc;
+    border-radius: 20px;
+    background-color: #757474;
+    color: #cccccc;
+}
+
+#inputDate {
+    width: 180px;
+    height: 200px;
+    margin: 70px auto 30px auto;
+}
+
+#inputDate h1  {
+    text-align: center; 
+    margin-bottom: 50px;
+}
+
+#inputDate input {
+    margin-top: -20px;
+    vertical-align: top;
+}
+
+#inputDate #LoginButton {
+    width: 70px;
+    margin: 0 50px;
+    border: 1px solid #cccccc;
+    color: #757474;
+    border-radius: 10%;
+
+}
+
+#inputDate #LoginButton:hover {
+    background-color: #ffffff;
+}
+
+
+
+
+
+
