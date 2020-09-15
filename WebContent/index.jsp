@@ -26,6 +26,7 @@
                             <input type="password" name="pass"><br>
                             <input id="LoginButton" type="submit" value="ログイン">
                         </div>
+                        <p>ユーザー登録がお済でない方は<span><a href="/TaskManagement/RegisterUser">こちらへ</a></span></p>
                     </form>
                 </div>
             </div>
