@@ -32,15 +32,20 @@
 	color: #cccccc;
 }
 
+#form #registerUser {
+	font-size: 15px;
+	width: 300px;
+	margin: 0 auto;
+}
+
 #inputDate {
 	width: 180px;
-	height: 200px;
+	height: 250px;
 	margin: 70px auto 30px auto;
 }
 
 #inputDate h1 {
 	text-align: center;
-	margin-bottom: 50px;
 }
 
 #inputDate input {
@@ -59,6 +64,7 @@
 #inputDate #LoginButton:hover {
 	background-color: #ffffff;
 }
+
 
 #Main {
 	margin: 0;
