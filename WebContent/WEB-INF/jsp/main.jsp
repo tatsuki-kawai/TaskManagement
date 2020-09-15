@@ -21,7 +21,7 @@ User user = (User)session.getAttribute("user");
 					<img src="image/homeIcon.png">
 					<form id="form" method="post" action="/TaskManagement/Login" >
 					    <input type="hidden" name="name" value=<%= user.getName() %>>
-						<input type="hidden" name="pass" value=<%= user.getName() %>>
+						<input type="hidden" name="pass" value=<%= user.getPass() %>>
 						<input id="homeButton" type="submit" value="ホーム">
 					</form>
 				</div>

@@ -61,11 +61,22 @@ public class UserDAO {
     	}
     }
 
-    public void confirmUser(String name, String password) { //ユーザーの情報が存在するかを確認する
+    public Boolean confirmUser(String name, String password) { //ユーザーの情報かどうかを確認する
+    	String userPassword;
         try {
-        	pS_confirmUser.setNString(1, name);
+        	pS_confirmUser.setString(1, name);
+        	resultSet = pS_confirmUser.executeQuery();
+        	while(resultSet.next()) {
+        		userPassword = resultSet.getString("password");
+
+        		if(password.equals(userPassword)) { //パスワードが一致したら
+        			return true;
+        		}
+        	}
         }catch(Exception e) {
+        	e.printStackTrace();
         }
+        return false;
     }
 
     public static void main(String[] args) {

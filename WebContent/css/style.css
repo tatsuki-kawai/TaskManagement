@@ -89,7 +89,7 @@ html {
 	float: left;
 }
 
-.menu a , .menu #homeButton{
+.menu a, .menu #homeButton{
 	font-size: 20px;
 	font-family: "Meiryo";
 	color: #757474;
@@ -102,6 +102,10 @@ html {
 .menu #homeButton {
 	border: none;
 	background-color: #cccccc;
+}
+
+.menu #homeButton:focus {
+	outline: 0;
 }
 
 .clearfix:after {
