@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.UserDAO;
+import model.LoginLogic;
 import model.User;
 
 /**
@@ -45,13 +45,15 @@ public class Login extends HttpServlet {
 		String name = request.getParameter("name");
 		String pass = request.getParameter("pass");
 
-		//入力されたパスワードが正しいか確認する
-		UserDAO userDAO = new UserDAO();
-		Boolean passCheck = userDAO.confirmUser(name, pass);
+	    //ユーザの生成
+		User user = new User(name, pass);
+
+		//生成されたユーザがデータベース上に存在するかを確認する
+		LoginLogic loginLogic = new LoginLogic();
+		Boolean passCheck = loginLogic.execute(user);
 
 		if (passCheck) {
 			//ログインしているユーザの情報をセッションスコープに保存する
-			User user = new User(name, pass);
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
 

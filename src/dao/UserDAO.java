@@ -61,7 +61,7 @@ public class UserDAO {
     	}
     }
 
-    public Boolean confirmUser(String name, String password) { //ユーザーの情報かどうかを確認する
+    public Boolean confirmUser(String name, String password) { //引数のユーザーと一致するユーザーがいるかどうかを確認する
     	String userPassword;
         try {
         	pS_confirmUser.setString(1, name);
@@ -77,11 +77,6 @@ public class UserDAO {
         	e.printStackTrace();
         }
         return false;
-    }
-
-    public static void main(String[] args) {
-    	UserDAO dao = new UserDAO();
-    	dao.registerUser("カワイ", "1234");
     }
 }
 

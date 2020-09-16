@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="model.User" %>
+<%@ page import="model.User"%>
 <%
 User user = (User)session.getAttribute("user");
 %>
@@ -19,15 +19,15 @@ User user = (User)session.getAttribute("user");
 			<div class="menu">
 				<div class="GoHome">
 					<img src="image/homeIcon.png">
-					<form id="form" method="post" action="/TaskManagement/Login" >
-					    <input type="hidden" name="name" value=<%= user.getName() %>>
+					<form id="form" method="post" action="/TaskManagement/Login">
+						<input type="hidden" name="name" value=<%= user.getName() %>>
 						<input type="hidden" name="pass" value=<%= user.getPass() %>>
 						<input id="homeButton" type="submit" value="ホーム">
 					</form>
 				</div>
 				<div class="AddTask">
-					<img src="image/addIcon.png"> <a class="clearfix"
-						href="main.html">新規登録</a>
+					<img src="image/addIcon.png">
+					<a class="clearfix" href="/TaskManagement/CreateTask">新規登録</a>
 				</div>
 				<div class="PrintTaskList">
 					<img src="image/listIcon.png"> <a class="clearfix"
