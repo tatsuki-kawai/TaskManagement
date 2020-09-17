@@ -19,13 +19,15 @@ public class UserDAO {
 	PreparedStatement pS_getTaskCount;
 	PreparedStatement pS_registerUser;
 	PreparedStatement pS_confirmUser;
+	PreparedStatement pS_getUserId;
 	PreparedStatement pS_createTask;
 
     String getUserCountSQL = "SELECT * FROM app_user";
     String getTaskCountSQL = "SELECT * FROM task";
     String registerUserSQL = "INSERT INTO app_user VALUES(?,?,?)";
     String confirmUserSQL = "SELECT * FROM app_user WHERE name = ?";
-    String createTaskSQL = "INSERT INTO task VALUES(?,?,?)";
+    String getUserIdSQL = "SELECT * FROM app_user WHERE name = ? and password = ?";
+    String createTaskSQL = "INSERT INTO task VALUES(?,?,?,?)";
 
     public UserDAO(){
 
@@ -36,6 +38,7 @@ public class UserDAO {
     		pS_getTaskCount = connection.prepareStatement(getTaskCountSQL);
     		pS_registerUser = connection.prepareStatement(registerUserSQL);
     		pS_confirmUser = connection.prepareStatement(confirmUserSQL);
+    		pS_getUserId = connection.prepareStatement(getUserIdSQL);
     		pS_createTask = connection.prepareStatement(createTaskSQL);
     	}catch(Exception e) {
     		e.printStackTrace();
@@ -55,10 +58,10 @@ public class UserDAO {
         return userCount;
     }
 
-    public int getTaskCount() {
+    public int getTaskCount() { //登録された目標の数を取得する
     	int taskCount = 0;
     	try {
-    		resultSet = pS_getUserCount.executeQuery();
+    		resultSet = pS_getTaskCount.executeQuery();
     		while(resultSet.next()) {
     			taskCount++;
     		}
@@ -98,21 +101,34 @@ public class UserDAO {
         return false;
     }
 
-    public void createTask(String name, String limit) {
+    public int getUserID(String name, String password) {
+    	int userId = 0;
+    	try {
+    		pS_getUserId.setString(1,name);
+    		pS_getUserId.setString(2, password);
+    		resultSet = pS_getUserId.executeQuery();
+    		while(resultSet.next()) {
+    			userId = resultSet.getInt("id");
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	return userId;
+    }
+
+    public void createTask(String userName, String limit, int userId) { //目標を新規に作成する
     	int id = getTaskCount() + 1;
     	try {
     		pS_createTask.setInt(1, id);
-    		pS_createTask.setString(2, name);
+    		pS_createTask.setString(2, userName);
     		pS_createTask.setString(3, limit);
+    		pS_createTask.setInt(4, userId);
     		pS_createTask.executeUpdate();
     	}catch(Exception e) {
     		e.printStackTrace();
     	}
     }
 
-    public static void main(String[] args) {
-    	UserDAO userDAO = new UserDAO();
-    	userDAO.createTask("Webアプリケーション制作", "2020年10月2日");
-    }
+
 }
 

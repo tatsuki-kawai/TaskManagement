@@ -8,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.CreateTaskLogic;
+import model.User;
 
 /**
  * Servlet implementation class CreateTask
@@ -38,8 +42,21 @@ public class CreateTask extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 
+		//リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String task_name = request.getParameter("task_name");
+		String task_limit = request.getParameter("task_limit");
+
+		//ユーザーの情報を取得する
+		HttpSession  session = request.getSession();
+        User user = (User) session.getAttribute("user");
+
+		//目標の登録をおこなう
+		CreateTaskLogic createTaskLogic = new CreateTaskLogic();
+		createTaskLogic.execute(user, task_name, task_limit);
+
+        //メイン画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
 		dispatcher.forward(request, response);
 
