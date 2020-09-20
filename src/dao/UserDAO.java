@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import model.Task;
 
 public class UserDAO {
 
@@ -21,6 +24,7 @@ public class UserDAO {
 	PreparedStatement pS_confirmUser;
 	PreparedStatement pS_getUserId;
 	PreparedStatement pS_createTask;
+	PreparedStatement pS_printTask;
 
     String getUserCountSQL = "SELECT * FROM app_user";
     String getTaskCountSQL = "SELECT * FROM task";
@@ -28,6 +32,7 @@ public class UserDAO {
     String confirmUserSQL = "SELECT * FROM app_user WHERE name = ?";
     String getUserIdSQL = "SELECT * FROM app_user WHERE name = ? and password = ?";
     String createTaskSQL = "INSERT INTO task VALUES(?,?,?,?)";
+    String getUserTask = "SELECT * FROM task WHERE user_id=?" ;
 
     public UserDAO(){
 
@@ -40,6 +45,7 @@ public class UserDAO {
     		pS_confirmUser = connection.prepareStatement(confirmUserSQL);
     		pS_getUserId = connection.prepareStatement(getUserIdSQL);
     		pS_createTask = connection.prepareStatement(createTaskSQL);
+    		pS_printTask = connection.prepareStatement(getUserTask);
     	}catch(Exception e) {
     		e.printStackTrace();
     	}
@@ -129,6 +135,21 @@ public class UserDAO {
     	}
     }
 
-
+    public ArrayList<Task> getUserTask(int userId) {
+    	ArrayList<Task> taskList = new ArrayList<Task>();
+    	try {
+    		pS_printTask.setInt(1, userId);
+    		resultSet = pS_printTask.executeQuery();
+    		while(resultSet.next()) {
+    			String name = resultSet.getString("name");
+    			String deadline = resultSet.getString("deadline");
+    			Task task = new Task(name, deadline);
+    			taskList.add(task);
+    		}
+    	}catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	return taskList;
+    }
 }
 

@@ -30,8 +30,8 @@ User user = (User)session.getAttribute("user");
 					<a class="clearfix" href="/TaskManagement/CreateTask">新規登録</a>
 				</div>
 				<div class="PrintTaskList">
-					<img src="image/listIcon.png"> <a class="clearfix"
-						href="main.html">目標一覧</a>
+					<img src="image/listIcon.png">
+					<a class="clearfix" href="/TaskManagement/PrintTask">目標一覧</a>
 				</div>
 			</div>
 		</div>
