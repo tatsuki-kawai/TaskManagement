@@ -12,7 +12,11 @@ ArrayList<Task> taskList = (ArrayList<Task>) session.getAttribute("taskList");
 </head>
 <body>
 <% for(Task task: taskList){ %>
-<p><%= task.getName()  %>:<%= task.getTimeLimit() %></p>
+<form method="post" action="/TaskManagement/EditTask">
+<input type="hidden" name="name" value=<%= task.getName() %>>
+<input type="hidden" name="timeLimit" value=<%= task.getTimeLimit() %>>
+<p><%= task.getName()  %>:<%= task.getTimeLimit() %></p><input type="submit" value="編集">
+</form>
 <% } %>
 </body>
 </html>
