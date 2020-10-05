@@ -14,7 +14,11 @@ User user = (User)session.getAttribute("user");
 	<div id="wrap">
 		<div class="menubar clearfix">
 			<div class="title">
-				<img src="image/title.png">
+			    <form method="post" action="/TaskManagement/Login">
+						<input type="hidden" name="name" value=<%= user.getName() %>>
+						<input type="hidden" name="pass" value=<%= user.getPass() %>>
+						<input id="titleImage" type="image" src="image/title.png" alt="たすマネ" width="200px" height="200px">
+				</form>
 			</div>
 			<div class="menu">
 				<div class="GoHome">

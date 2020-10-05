@@ -110,7 +110,7 @@ html {
 	background-color: #cccccc;
 }
 
-.menu #homeButton:focus {
+.menu #homeButton:focus , .title #titleImage:focus {
 	outline: 0;
 }
 
@@ -123,11 +123,6 @@ html {
 #Main .main-content h1 {
 	color: #757474;
 	text-align: center;
-}
-
-#Main .title img {
-	width: 200px;
-	height: 200px;
 }
 
 #Main #wrap {
