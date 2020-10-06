@@ -8,7 +8,7 @@ User user = (User)session.getAttribute("user");
 <html>
 <head>
 <meta charset="utf-8">
-<link href="./css/style.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 </head>
 <body id="Main">
 	<div id="wrap">
@@ -40,9 +40,9 @@ User user = (User)session.getAttribute("user");
 			</div>
 		</div>
 		<div class="main-content">
-			<h1>
-				ようこそ！<%= user.getName() %>さん！<br>まずは目標を登録しましょう！
-			</h1>
+		    <div>
+		        <h1>ようこそ！<%= user.getName() %>さん！<br>まずは目標を登録しましょう！</h1>
+		    </div>
 		</div>
 	</div>
 </body>

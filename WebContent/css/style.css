@@ -65,14 +65,17 @@
 	background-color: #ffffff;
 }
 
+html {
+	height: 100%;
+}
 
-#Main {
+body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
 }
 
-html {
+#wrap {
 	height: 100%;
 }
 
@@ -83,7 +86,11 @@ html {
 	background-color: #cccccc;
 }
 
-#Main .menu {
+.main-content {
+	height: 100%;
+}
+
+.menu {
 	width: 180px;
 	height: 300px;
 	margin: 0 auto;
@@ -95,7 +102,7 @@ html {
 	float: left;
 }
 
-.menu a, .menu #homeButton{
+.menu a, .menu #homeButton {
 	font-size: 20px;
 	font-family: "Meiryo";
 	color: #757474;
@@ -110,7 +117,7 @@ html {
 	background-color: #cccccc;
 }
 
-.menu #homeButton:focus , .title #titleImage:focus {
+.menu #homeButton:focus, .title #titleImage:focus {
 	outline: 0;
 }
 
@@ -122,9 +129,73 @@ html {
 
 #Main .main-content h1 {
 	color: #757474;
+	height: 100px;
 	text-align: center;
+    margin-top: 0;
 }
 
-#Main #wrap {
-	height: 100%;
+.title img {
+    width: 200px;
+    height: 200px;
+    margin-top: -30px;
 }
+
+/*
+新規登録画面のメインコンテンツの設定開始
+*/
+
+#createTask {
+	font-family: "Meiryo";
+	color: #757474;
+}
+
+#createTask .main-content {
+	width: 1000px;
+	height: 100%;
+	float: right;
+}
+
+#createTask .form {
+	width: 300px;
+	height: 300px;
+	margin: 30px;
+}
+
+#createTask .main-content .task-parameter {
+	width: 300px;
+	height: 30px;
+	margin-bottom: 40px;
+	border-bottom: solid 1px #757474;
+}
+
+#createTask .main-content .task-parameter .task-name, #createTask .main-content .task-parameter .task-date
+	{
+	outline: 0;
+}
+
+#createTask .main-content .task-parameter .name, #createTask .main-content .task-parameter .date
+	{
+	display: inline;
+}
+
+#createTask .main-content .task-parameter .task-name {
+	width: 225px;
+}
+
+#createTask .main-content .task-parameter .task-date {
+	width: 245px;
+}
+
+#createTask .submit {
+	width: 300px;
+}
+
+#createTask .task-submit {
+	height: 30px;
+	width: 50px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* 新規登録画面のメインコンテンツの設定終了*/
