@@ -199,3 +199,46 @@ body {
 }
 
 /* 新規登録画面のメインコンテンツの設定終了*/
+
+/* 目標一覧画面のメインコンテンツの設定 */
+
+#printTask {
+    color: #757474;
+}
+
+#printTask .main-content {
+    width: 1000px;
+    height: 100%;
+    margin: auto;
+	float: right;
+}
+
+#printTask .main-content .title {
+    width: 100%;
+    border-bottom: solid 1px #757474;
+    padding-bottom: 50px;
+}
+
+#printTask h1 {
+    width: 500px;
+    text-align: center;
+    margin: auto;
+}
+
+#printTask .task {
+    width: 500px;
+    height: 150px;
+    text-align: center;
+    margin: 20px auto 0 auto;
+    background-color: #cccccc;
+}
+
+#printTask h2 {
+    padding-top: 10px;
+}
+
+#printTask p {
+    float: right;
+    padding-right: 10px;
+}
+/* 目標一覧画面のメインコンテンツの設定終了 */
