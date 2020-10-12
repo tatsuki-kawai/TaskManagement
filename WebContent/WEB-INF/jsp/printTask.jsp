@@ -50,15 +50,25 @@ ArrayList<Task> taskList = (ArrayList<Task>) session.getAttribute("taskList");
 					for (Task task : taskList) {
 				%>
 				<div class="task">
-					<form method="post" action="/TaskManagement/EditTask">
-						<input type="hidden" name="name" value=<%=task.getName()%>>
-						<input type="hidden" name="timeLimit"
-							value=<%=task.getTimeLimit()%>> <input type="submit"
-							value="編集">
-					</form>
-					<h2><%=task.getName()%></h2>
-					<p><%=task.getTimeLimit()%>まで
-					</p>
+					<div class="button clearfix">
+						<form class="edit" method="post" action="/TaskManagement/EditTask">
+							<input type="hidden" name="name" value=<%=task.getName()%>>
+							<input type="hidden" name="timeLimit"
+								value=<%=task.getTimeLimit()%>> <input id="editButton"
+								type="image" src="image/editIcon.png" alt="編集" width="35px"
+								height="25px">
+						</form>
+						<form class="delete" method="post" action="/TaskManagement/DeleteTask">
+							<input type="hidden" name="name" value=<%=task.getName()%>>
+							<input type="hidden" name="timeLimit"
+								value=<%=task.getTimeLimit()%>> <input
+								id="deleteButton" type="image" src="image/deleteIcon.png"
+								alt="削除" width="35px" height="25px">
+						</form>
+						</div>
+						<h2><%=task.getName()%></h2>
+						<p><%=task.getTimeLimit()%>まで
+						</p>
 				</div>
 				<%
 					}

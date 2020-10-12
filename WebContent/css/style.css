@@ -234,7 +234,15 @@ body {
 }
 
 #printTask h2 {
-    padding-top: 10px;
+	padding-top: 50px;
+}
+
+#printTask .button {
+	float: right;
+}
+
+#printTask .button form {
+	display: inline;
 }
 
 #printTask p {
