@@ -28,6 +28,7 @@ public class UserDAO {
 	PreparedStatement pS_printTask;
 	PreparedStatement pS_getTask;
 	PreparedStatement pS_editTask;
+	PreparedStatement pS_deleteTask;
 
 	String getUserCountSQL = "SELECT * FROM app_user";
 	String getTaskCountSQL = "SELECT * FROM task";
@@ -39,6 +40,7 @@ public class UserDAO {
 	String getTaskSQL = "SELECT * FROM task WHERE name = ? and deadline= ? and user_id = ?";
 	String getTaskSQL2 = "SELECT * FROM task WHERE name = ? and deadline IS NULL and user_id = ?";
 	String editTaskSQL = "UPDATE task SET name = ? , deadline = ? WHERE id = ?";
+	String deleteTaskSQL = "DELETE from task WHERE name = ? and user_id = ? ";
 
 	public UserDAO() {
 
@@ -192,6 +194,16 @@ public class UserDAO {
 			pS_editTask.setInt(3, task.getID());
 			pS_editTask.executeUpdate();
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void deleteTask(Task task) {
+		try {
+			pS_deleteTask.setString(1, task.getName());
+			pS_deleteTask.setInt(2, task.getUserID());
+			pS_deleteTask.executeQuery();
+		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}

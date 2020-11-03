@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.EditTaskLogic;
+import model.GetTaskLogic;
 import model.Task;
 import model.User;
 
@@ -52,8 +52,8 @@ public class EditTask extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 
 		//データベースから選択された目標の情報を取得する
-		EditTaskLogic editTaskLogic = new EditTaskLogic();
-        Task task = editTaskLogic.execute(user, name, timeLimit);
+		GetTaskLogic getTaskLogic = new GetTaskLogic();
+        Task task = getTaskLogic.execute(user, name, timeLimit);
 
         //取得した目標をセッションスコープに保存する
         session.setAttribute("task", task);
